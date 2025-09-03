@@ -76,6 +76,144 @@ Durch die Web-Technologie ist die Nutzung auf allen Geräten möglich – egal o
 - Authentifizierung: JWT
 - Speicherung: Lokales Dateisystem oder optional Cloud (z. B. AWS S3)
 
+
+# SportAnalytics – Übersicht & Entwicklung
+
+## Projektbeschreibung
+
+SportAnalytics ist eine webbasierte Plattform zur Analyse und Kommentierung von Sportvideos. Ziel ist es, Amateursportlern, Trainern und Analysten eine einfache und zugängliche Möglichkeit zu bieten, Spielszenen hochzuladen, zu analysieren und mit einer Community zu teilen.
+
+- **Frontend:** Angular (v19)
+- **Backend:** Node.js (Express)
+- **Datenbank:** MongoDB
+- **Zielgruppe:** Amateursport, Trainer, Vereine, Bildungseinrichtungen
+
+---
+
+## Aktuelle User Stories (Statusübersicht)
+
+### User Story 1: Video-Upload & Kategorisierung
+- **Als** Nutzer
+- **möchte ich** Videos hochladen und in Kategorien organisieren,
+- **damit ich** verschiedene Spielszenen besser strukturieren kann.
+
+**Akzeptanzkriterien:**
+- Der Nutzer kann ein Video hochladen.
+- Der Nutzer kann eine Sportart oder Kategorie auswählen.
+- Das Video wird korrekt zugeordnet angezeigt.
+
+**Status:** Teilweise umgesetzt  
+**To-do:** Kategorisierungsfunktion fehlt noch
+
+---
+
+### User Story 2: Markierungen & Laufwege einfügen
+- **Als** Trainer
+- **möchte ich** Markierungen und Laufwege in Videos einfügen,
+- **damit ich** Spielsituationen für meine Spieler analysieren kann.
+
+**Akzeptanzkriterien:**
+- Nutzer kann Marker, Kreise und Pfeile setzen.
+- Markierungen bleiben gespeichert.
+- Optional: Zeitlich synchronisiert mit Video.
+
+**Status:** Noch nicht begonnen  
+**To-do:** Technische Machbarkeit prüfen (Canvas/SVG Overlay)
+
+---
+
+### User Story 3: Videos mit der Community teilen
+- **Als** Nutzer
+- **möchte ich** bearbeitete Videos öffentlich teilen,
+- **damit ich** Feedback oder Inspiration erhalten kann.
+
+**Akzeptanzkriterien:**
+- Videos können als „öffentlich“ markiert werden.
+- Sie erscheinen im Community-Bereich.
+
+**Status:** Umgesetzt
+
+---
+
+### User Story 4: Bearbeitete Videos herunterladen
+- **Als** Nutzer
+- **möchte ich** bearbeitete Videos herunterladen,
+- **damit ich** sie offline oder extern verwenden kann.
+
+**Akzeptanzkriterien:**
+- Video inklusive Markierungen kann heruntergeladen werden.
+- Downloadformat ist gebräuchlich (z. B. MP4).
+
+**Status:** Umgesetzt
+
+---
+
+### User Story 5: Kommentare & Bewertungen
+- **Als** Nutzer
+- **möchte ich** Videos kommentieren und bewerten,
+- **damit ich** mich mit anderen Nutzern austauschen kann.
+
+**Akzeptanzkriterien:**
+- Kommentarfunktion unter Videos verfügbar.
+- Bewertung (z. B. Sterne) ist möglich.
+- Speicherung & Anzeige der Inhalte.
+
+**Status:** Noch nicht umgesetzt  
+**To-do:** Kommentarmodell, API und Frontend-Komponente entwickeln
+
+---
+
+## Erweiterungsideen für zukünftige Releases
+
+### Erweiterte Analysefunktionen
+- Zeitmarken mit Annotationen
+- Manuelle Heatmap-Funktion durch Nutzerinteraktion
+- KI-gestützte Erkennung (z. B. Spielerpositionen, Tore)
+
+### Community- und Social-Features
+- Favoriten und Like-Funktion
+- Öffentliche Profile mit Statistiken
+- Folgen-Funktion für Nutzer
+
+### Funktionen für Teams & Trainer
+- Gruppen- und Teamverwaltung
+- Übungssammlung mit Trainingsvideos
+- Aufgaben und Analyseaufträge für Spieler
+
+### Technische Verbesserungen
+- Progressive Web App (PWA)
+- Push-Benachrichtigungen
+- Drag & Drop Upload im Frontend
+
+### Sicherheit & Benutzerrollen
+- Zwei-Faktor-Authentifizierung (2FA)
+- Erweiterte Rollen (z. B. Co-Trainer, Analyst)
+- Private Gruppen für geschützte Inhalte
+
+### Monitoring & Feedback
+- Interne Feedbackfunktion für Nutzer
+- Admin-Dashboard mit Statistiken
+- Watchtime- und Engagement-Analyse
+
+---
+
+## Nächste Schritte (Vorschlag)
+
+1. Umsetzung der Kommentarfunktion (Story 5)
+2. Einführung eines Favoriten-/Like-Systems
+3. Entwicklung von Nutzerprofilen mit Statistiken
+
+Diese drei Punkte bilden die Basis für mehr Interaktion, Feedback und Nutzerbindung.
+
+---
+
+## Lizenz & Hinweise
+
+Dieses Projekt ist Teil eines schulischen Projekts im Rahmen des Moduls 306 und nicht öffentlich lizenziert. Die Nutzung erfolgt ausschließlich zu Ausbildungszwecken.
+
+
+
+
 ## Weitere Informationen
 
 Für technische Details (Architektur, Komponenten, APIs, Datenmodelle etc.), siehe bitte die Datei `SportAnalytics_Zusammenfassung.txt` oder die UML-Diagramme im Projektverzeichnis.
