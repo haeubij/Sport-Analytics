@@ -77,18 +77,7 @@ Durch die Web-Technologie ist die Nutzung auf allen Geräten möglich – egal o
 - Speicherung: Lokales Dateisystem oder optional Cloud (z. B. AWS S3)
 
 
-# SportAnalytics – Übersicht & Entwicklung
-
-## Projektbeschreibung
-
-SportAnalytics ist eine webbasierte Plattform zur Analyse und Kommentierung von Sportvideos. Ziel ist es, Amateursportlern, Trainern und Analysten eine einfache und zugängliche Möglichkeit zu bieten, Spielszenen hochzuladen, zu analysieren und mit einer Community zu teilen.
-
-- **Frontend:** Angular (v19)
-- **Backend:** Node.js (Express)
-- **Datenbank:** MongoDB
-- **Zielgruppe:** Amateursport, Trainer, Vereine, Bildungseinrichtungen
-
----
+# SportAnalytics User Stories
 
 ## Aktuelle User Stories (Statusübersicht)
 
