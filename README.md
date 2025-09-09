@@ -27,21 +27,21 @@ Durch die Web-Technologie ist die Nutzung auf allen Geräten möglich – egal o
 ## Anforderungen an die Applikation
 
 ### Funktionale Anforderungen
-- Nutzer können sich registrieren und anmelden
-- Nutzer können Videos hochladen, verwalten und in Kategorien einordnen
-- Nutzer können in Videos Markierungen und Laufwege einfügen
-- Nutzer können eigene oder fremde Videos analysieren
-- Geteilte Videos können kommentiert und bewertet werden
-- Nutzer können bearbeitete Videos herunterladen
-- Es gibt eine Benutzerverwaltung mit Rollen (z. B. Admin, Trainer, Spieler)
+- 1. Nutzer können sich registrieren und anmelden
+- 2. Nutzer können Videos hochladen, verwalten und in Kategorien einordnen
+- 3. Nutzer können in Videos Markierungen und Laufwege einfügen
+- 4. Nutzer können eigene oder fremde Videos analysieren
+- 5. Geteilte Videos können kommentiert und bewertet werden
+- 6. Nutzer können bearbeitete Videos herunterladen
+- 7. Es gibt eine Benutzerverwaltung mit Rollen (z. B. Admin, Trainer, Spieler)
 
 ### Nicht-funktionale Anforderungen
-- Die Web-App ist leicht verständlich und benutzerfreundlich aufgebaut
-- Die Plattform ist responsive und läuft auf Desktop, Tablet und Smartphone
-- Datenschutz wird beachtet, insbesondere bei Video-Uploads und Profilen
-- Das System ist skalierbar – spätere Erweiterungen sind einfach möglich
-- Die Applikation bietet eine stabile Performance auch bei größeren Videos
-- Die Lösung ist wartbar durch eine modulare Struktur
+- 1. Die Web-App ist leicht verständlich und benutzerfreundlich aufgebaut
+- 2. Die Plattform ist responsive und läuft auf Desktop, Tablet und Smartphone
+- 3. Datenschutz wird beachtet, insbesondere bei Video-Uploads und Profilen
+- 4. Das System ist skalierbar – spätere Erweiterungen sind einfach möglich
+- 5. Die Applikation bietet eine stabile Performance auch bei größeren Videos
+- 6. Die Lösung ist wartbar durch eine modulare Struktur
 
 ## Probleme, die gelöst werden
 
