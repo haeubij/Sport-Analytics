@@ -213,3 +213,78 @@ Dieses Projekt wurde im Rahmen des Moduls 306 an der GIBB Bern umgesetzt. Wir fr
 
 Projektteam:  
 Janis Häubi, Manuel Affolter, Pascal Fankhauser, Levin Keller
+
+
+# Analyse der Komponentenabhängigkeiten im Auslieferungsprozess  
+SportAnalytics – Technische Dokumentation (README-Ausschnitt)
+
+## Übersicht
+Dieses Dokument beschreibt die Abhängigkeiten der Komponenten der SportAnalytics-Webapplikation und deren Auswirkungen auf den Auslieferungs- und Deployment-Prozess.  
+Die Anwendung besteht aus einem Angular-Frontend, einem Node.js-Backend, einer MongoDB-Datenbank sowie einem lokalen Video-Upload-System.
+
+## Systemkomponenten
+
+### 1. Frontend (Angular)
+- Stellt die Benutzeroberfläche bereit  
+- Kommuniziert über REST-API mit dem Backend  
+- Wird als statisches Build-Paket ausgeliefert (z. B. Webserver)
+
+### 2. Backend (Node.js)
+- API-Server mit Geschäftslogik  
+- Verarbeitung von Video-Uploads und Nutzeraktionen  
+- JWT-Authentifizierung  
+- Benötigt aktive Datenbankverbindung
+
+### 3. Datenbank (MongoDB)
+- Speicherung von Nutzern, Videometadaten und Berechtigungen  
+- Muss vor dem Backend laufen, da das Backend beim Start eine Verbindung herstellt
+
+### 4. Videospeicher (lokales Upload-Verzeichnis)
+- Speicherort der hochgeladenen Video-Dateien  
+- Backend benötigt Schreib-/Leserechte für das Verzeichnis `uploads/`
+
+## Abhängigkeiten zwischen den Komponenten
+
+### Frontend → Backend
+- Das Frontend ist vollständig auf eine funktionierende API angewiesen  
+- Änderungen an API-Endpunkten müssen im Frontend angepasst werden  
+- Fehlerhafte API-URL im `environment.ts` führt zu Funktionsausfällen
+
+### Backend → Datenbank
+- Das Backend kann ohne aktive Datenbank nicht starten  
+- Datenmodelländerungen erfordern eine abgestimmte Backend-Version  
+- Fehlerhafte MongoDB-URI oder nicht laufender Dienst blockieren das Deployment
+
+### Backend → Videospeicher
+- Das Verzeichnis `uploads/` muss existieren  
+- Fehlende Schreibrechte verhindern Video-Uploads  
+- Backend muss Zugriffspfad korrekt konfiguriert haben
+
+## Ablauf des Auslieferungsprozesses
+
+1. Start der MongoDB-Datenbank  
+2. Starten des Backends (API wird bereitgestellt)  
+3. Build und Deployment des Frontends  
+4. Überprüfung des Upload-Verzeichnisses und der Berechtigungen  
+
+Jede Komponente ist notwendige Voraussetzung für den nächsten Schritt. Fehler im Ablauf führen zu Ausfällen im Gesamtsystem.
+
+## Risiken und Herausforderungen
+
+| Risiko | Beschreibung | Auswirkung |
+|--------|--------------|------------|
+| Nicht erreichbare Datenbank | MongoDB läuft nicht oder fehlerhafte URI | Backend startet nicht |
+| Falsche API-URL im Frontend | Konfigurationsfehler in `environment.ts` | Login, Upload und Community-Funktionen fallen aus |
+| Versionskonflikte | Änderungen im Backend ohne Anpassungen im Frontend | Fehlende oder fehlerhafte Daten |
+| Rechteprobleme im Upload-Verzeichnis | Schreibrechte fehlen | Uploads schlagen fehl |
+
+## Massnahmen zur Risikominimierung
+- Verwendung von `.env`-Dateien für Backend-Konfiguration  
+- Klare Versionierung der API und Datenmodelle  
+- Automatisierte Tests zur Überprüfung der API-Kompatibilität  
+- Deploy-Skripte, die die Verfügbarkeit von MongoDB prüfen  
+- Dokumentation aller Änderungen an Schnittstellen und Datenmodellen  
+
+## Fazit
+Die Analyse zeigt, dass ein stabiler Auslieferungsprozess nur durch abgestimmtes Zusammenspiel aller Komponenten gewährleistet werden kann. Besonders kritisch sind die Abhängigkeiten zwischen Datenbank, Backend und Frontend. Durch strukturierte Konfiguration, getestete Deployment-Abfolgen und saubere Dokumentation können typische Fehlerquellen vermieden werden.
+
