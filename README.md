@@ -215,6 +215,10 @@ Projektteam:
 Janis Häubi, Manuel Affolter, Pascal Fankhauser, Levin Keller
 
 
+
+
+
+
 # Analyse der Komponentenabhängigkeiten im Auslieferungsprozess  
 SportAnalytics – Technische Dokumentation (README-Ausschnitt)
 
