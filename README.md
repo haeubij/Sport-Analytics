@@ -220,7 +220,6 @@ Janis Häubi, Manuel Affolter, Pascal Fankhauser, Levin Keller
 
 
 # Analyse der Komponentenabhängigkeiten im Auslieferungsprozess  
-SportAnalytics – Technische Dokumentation (README-Ausschnitt)
 
 ## Übersicht
 Dieses Dokument beschreibt die Abhängigkeiten der Komponenten der SportAnalytics-Webapplikation und deren Auswirkungen auf den Auslieferungs- und Deployment-Prozess.  
