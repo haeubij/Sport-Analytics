@@ -291,3 +291,118 @@ Jede Komponente ist notwendige Voraussetzung für den nächsten Schritt. Fehler 
 ## Fazit
 Die Analyse zeigt, dass ein stabiler Auslieferungsprozess nur durch abgestimmtes Zusammenspiel aller Komponenten gewährleistet werden kann. Besonders kritisch sind die Abhängigkeiten zwischen Datenbank, Backend und Frontend. Durch strukturierte Konfiguration, getestete Deployment-Abfolgen und saubere Dokumentation können typische Fehlerquellen vermieden werden.
 
+---
+
+## 7. Best Practices für Integration und Prozessdokumentation (Kurzfassung)
+
+### Zweck
+
+Dieses Kapitel beschreibt einfache, verbindliche Regeln für Integration, Deployment und Qualitätssicherung von **SportAnalytics**. Ziel ist ein stabiler Betrieb mit klaren Abläufen und möglichst wenig Komplexität.
+
+Geltungsbereich:
+
+* Angular Frontend
+* Node.js + Express Backend
+* MongoDB
+* JWT Authentifizierung
+
+---
+
+### Projektstruktur (vereinfacht)
+
+```
+project-root/
+├── frontend/    # Angular
+├── backend/     # Node.js / Express
+├── docs/        # Dokumentation
+├── scripts/     # Deploy- & Check-Skripte
+└── .github/     # CI (optional)
+```
+
+Grundregel: Frontend, Backend und Datenbank sind klar getrennt und kommunizieren nur über REST-APIs.
+
+---
+
+### Deployment-Prozess (Kurz)
+
+Reihenfolge:
+
+1. MongoDB starten
+2. Backend starten
+3. Backend Health-Check
+4. Frontend builden und deployen
+5. Kurzer Funktionstest
+
+Minimal-Checks:
+
+* API erreichbar (`/health` → ok)
+* Frontend lädt
+* Upload-Verzeichnis beschreibbar
+
+---
+
+### Umgebungskonfiguration
+
+* **Keine Secrets im Code**
+* Konfiguration über `.env`
+* `.env.example` als Vorlage im Repository
+
+Wichtige Variablen:
+
+* `MONGODB_URI`
+* `JWT_SECRET`
+* `NODE_ENV`
+* `UPLOAD_DIR`
+
+Fehlende Variablen müssen den Start abbrechen.
+
+---
+
+### Abhängigkeiten
+
+* Frontend benötigt laufendes Backend
+* Backend benötigt laufende MongoDB
+* Upload-Funktion benötigt Schreibrechte
+
+Bei Fehlern: zuerst Datenbank, dann Backend, zuletzt Frontend prüfen.
+
+---
+
+### Versionskontrolle
+
+* `main`: stabile Version
+* `feature/<name>`: neue Funktionen
+* `bugfix/<name>`: Fehlerbehebungen
+
+Commits klar und kurz:
+
+* `feat: Video Upload`
+* `fix: Login Fehler`
+* `docs: API angepasst`
+
+Versionierung nach SemVer (z. B. 1.0.0 → 1.1.0 → 1.1.1).
+
+---
+
+### Testing (Minimalstandard)
+
+* Unit Tests für zentrale Logik
+* API-Tests für wichtigste Endpunkte
+* Nach Deployment: Smoke-Test (Login, Videoübersicht, Upload)
+
+Ziel: Fehler früh erkennen, nicht perfekte Testabdeckung.
+
+---
+
+### CI/CD (optional)
+
+* Automatische Tests bei Push oder Pull Request
+* Merge in `main` nur bei erfolgreichen Tests
+* Deployment kann manuell oder automatisiert erfolgen
+
+---
+
+### Kernaussage
+
+Klare Trennung der Komponenten, einfache Deploy-Reihenfolge, saubere Konfiguration und minimale Tests reichen aus, um SportAnalytics stabil, nachvollziehbar und erweiterbar zu betreiben.
+
